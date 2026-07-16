@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createAdminClient } from "@/lib/supabase/server";
+import { createWriteClient } from "@/lib/supabase/server";
 import type { ConsultInsert } from "@/lib/database.types";
 
 /**
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
   };
 
   try {
-    const supabase = createAdminClient();
+    const supabase = createWriteClient();
     const { error } = await supabase.from("consults").insert(row);
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500 });

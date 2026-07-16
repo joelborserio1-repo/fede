@@ -31,3 +31,15 @@ export function createAdminClient() {
     { auth: { persistSession: false } },
   );
 }
+
+/**
+ * Client used by write routes (consults / subscribers). Prefers the service
+ * role when configured; otherwise falls back to the anon/publishable client,
+ * which the RLS policies still allow to INSERT into those tables. This means
+ * the forms persist with only the public key set, and gain admin reach (e.g.
+ * future admin reads) once the secret is added.
+ */
+export function createWriteClient() {
+  if (process.env.SUPABASE_SERVICE_ROLE_KEY) return createAdminClient();
+  return createServerClient();
+}

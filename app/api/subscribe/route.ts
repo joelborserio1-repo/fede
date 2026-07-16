@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createAdminClient } from "@/lib/supabase/server";
+import { createWriteClient } from "@/lib/supabase/server";
 import type { SubscriberInsert } from "@/lib/database.types";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -31,7 +31,7 @@ export async function POST(request: Request) {
   };
 
   try {
-    const supabase = createAdminClient();
+    const supabase = createWriteClient();
     const { error } = await supabase
       .from("subscribers")
       .upsert(row, { onConflict: "email", ignoreDuplicates: true });
