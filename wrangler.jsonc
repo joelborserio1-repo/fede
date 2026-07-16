@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // IMPORTANT: `name` must match the Worker you created in the Cloudflare
+  // dashboard. Rename this if your Worker is not called "fede".
+  "name": "fede",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-03-25",
+  // Next.js on Workers needs Node compatibility.
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".open-next/assets"
+  },
+  "observability": {
+    "enabled": true
+  }
+  // Set secrets in the dashboard (Settings > Variables) or with
+  // `npx wrangler secret put NAME`:
+  //   NEXT_PUBLIC_SUPABASE_URL
+  //   NEXT_PUBLIC_SUPABASE_ANON_KEY
+  //   SUPABASE_SERVICE_ROLE_KEY
+  //   NEXT_PUBLIC_CALCOM_LINK
+}
