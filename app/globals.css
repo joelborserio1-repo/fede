@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+    line-height: 1.55;
+  }
+
+  ::selection {
+    background: #2a2521;
+    color: #f4efe6;
+  }
+}
+
+@layer components {
+  /* Page gutter — the shared content column */
+  .wrap {
+    @apply mx-auto w-full max-w-wrap px-6 sm:px-8 lg:px-[30px];
+  }
+
+  /* Small caps label above headings */
+  .eyebrow {
+    @apply text-[11px] font-medium uppercase tracking-eyebrow text-gold;
+  }
+
+  /* Display heading rhythm */
+  .display {
+    @apply font-serif font-medium leading-none;
+  }
+
+  /* Buttons — squared, letter-spaced, editorial */
+  .btn {
+    @apply inline-block cursor-pointer border border-ink px-8 py-[15px] text-center font-sans text-xs font-semibold uppercase tracking-wide transition duration-200;
+  }
+  .btn-sm {
+    @apply px-5 py-[11px] text-[10.5px];
+  }
+  .btn-fill {
+    @apply border-ink bg-ink text-cream hover:bg-black;
+  }
+  .btn-line {
+    @apply bg-transparent text-ink hover:bg-ink hover:text-cream;
+  }
+  .btn-light {
+    @apply border-cream text-cream hover:bg-cream hover:text-ink;
+  }
+
+  /* Hairline gold underline link */
+  .txtlink {
+    @apply inline-block border-b border-gold pb-[3px] text-[11px] font-semibold uppercase tracking-wider text-ink transition-colors hover:text-gold;
+  }
+}
