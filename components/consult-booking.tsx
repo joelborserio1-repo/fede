@@ -19,7 +19,7 @@ export function ConsultBooking() {
     let active = true;
 
     (async () => {
-      const cal = await getCalApi();
+      const cal = await getCalApi({ namespace: "consult" });
       if (!active) return;
 
       // Warm, on-brand embed styling.
