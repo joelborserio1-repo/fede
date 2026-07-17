@@ -18,7 +18,7 @@ export async function generateMetadata({
   const ring = await getRing(slug);
   if (!ring) return { title: "Ring" };
   return {
-    title: `The ${ring.name}`,
+    title: ring.name,
     description: ring.tagline ?? ring.description ?? undefined,
   };
 }
@@ -54,7 +54,7 @@ export default async function RingDetailPage({
               The Collection
             </Link>
             <span className="px-2">/</span>
-            <span className="text-ink">The {ring.name}</span>
+            <span className="text-ink">{ring.name}</span>
           </div>
         </div>
       </section>
@@ -87,7 +87,7 @@ export default async function RingDetailPage({
             <div className="md:pt-4">
               <span className="eyebrow">From the collection</span>
               <h1 className="mt-4 font-serif text-[clamp(40px,5vw,60px)] font-medium leading-none">
-                The {ring.name}
+                {ring.name}
               </h1>
               <p className="mt-3 text-[11px] uppercase tracking-wide text-stone">
                 {ring.cut}
@@ -165,7 +165,7 @@ export default async function RingDetailPage({
       <section className="border-t border-line bg-sand py-20">
         <div className="wrap text-center">
           <h2 className="display text-[clamp(28px,4vw,40px)]">
-            See the {ring.name} in person
+            See {ring.name} in person
           </h2>
           <p className="mx-auto mt-4 max-w-[44ch] text-[15px] text-stone">
             We&apos;ll bring it to you across Newcastle, or meet you at a pop-up in

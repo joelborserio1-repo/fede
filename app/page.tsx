@@ -119,7 +119,7 @@ export default async function HomePage() {
               <div className="flex flex-col justify-center px-8 py-16 md:px-14">
                 <span className="eyebrow">From the collection</span>
                 <h3 className="mt-4 font-serif text-[clamp(34px,4vw,46px)] font-medium leading-none">
-                  The {featured.name}
+                  {featured.name}
                 </h3>
                 <p className="mt-5 max-w-[44ch] text-[15px] leading-relaxed text-stone">
                   {featured.description}
